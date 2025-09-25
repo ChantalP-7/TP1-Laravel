@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Etudiant;
+use App\Models\Ville;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
@@ -21,8 +22,10 @@ class EtudiantController extends Controller
         //$tasks = Task::select()->orderby('title')->get();
         //$tasks = Task::select()->orderby('title')->first;
         //return $tasks[3]->title;
-        $etudiants = Etudiant::with('ville')->get();   // Eloquent a fait Select * from etudiants;
-        return view('etudiant.index', compact('etudiants'));       
+        $etudiants = Etudiant::select()->with('ville') // Eloquent a fait Select * from etudiants;
+        ->orderby('nom')
+        ->paginate(10);
+        return view('etudiant.index', ["etudiants" => $etudiants]);       
 
     }
     /**
@@ -32,7 +35,8 @@ class EtudiantController extends Controller
      */
     public function create()
     {
-        //
+        $villes = Ville::all() ;
+        return view('etudiant.create', compact('villes')); // Tableau associatif : compact('villes') est équivalent et un raccourci de 'villes' => $villes
     }
 
     /**
@@ -43,7 +47,24 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'nom' => 'required|string|max:190',
+        'adresse' => 'required|string|max:190',
+        'telephone' => 'required|string',
+        'dateNaissance' => 'required|date',
+        'courriel' => 'required|string',
+    ]);
+
+    $etudiant = Etudiant::create([
+        'nom' => $request->nom,
+        'adresse' => $request->adresse,
+        'telephone' => $request->telephone,
+        'dateNaissance' => $request->dateNaissance,
+        'courriel' => $request->courriel,        
+        'ville_id' => 1
+    ]);
+
+    return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant créé avec succès !');
     }
 
     /**
@@ -65,7 +86,8 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-        //
+        $villes = Ville::all();
+        return view('etudiant.edit', compact('etudiant', 'villes')); // compact est un raccourci pour les tableaux associatifs
     }
 
     /**
@@ -77,7 +99,19 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-        //
+        $validated = $request->validate([
+        'nom' => 'required|string',
+        'adresse' => 'required|string',
+        'telephone' => 'required|string',
+        'dateNaissance' => 'required|date',
+        'courriel' => 'required|email',
+        'ville_id' => 'required|exists:villes,id',
+    ]);
+
+     $etudiant->update($validated);
+
+     return redirect()->route('etudiant.show', $etudiant)->with('success', 'Étudiant mis à jour.');
+
     }
 
     /**

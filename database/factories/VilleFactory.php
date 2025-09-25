@@ -17,7 +17,7 @@ class VilleFactory extends Factory
     public function definition()
     {
         return [
-            'ville'=> $this->faker->city()
+            'ville'=> $this->faker->unique()->city
         ];
     }
 }

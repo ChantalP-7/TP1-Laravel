@@ -18,11 +18,10 @@ return new class extends Migration
             $table->string('nom');
             $table->string('adresse');
             $table->string('telephone');
-            $table->string('courriel');
             $table->date('dateNaissance');
+            $table->string('courriel')->unique();
             $table->unsignedBigInteger('ville_id');
             $table->timestamps();
-            $table->foreign('ville_id')->references('id')->on('villes')->onDelete('cascade');
         });
     }
 

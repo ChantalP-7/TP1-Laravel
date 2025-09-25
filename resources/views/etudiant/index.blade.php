@@ -1,22 +1,22 @@
 @extends('layouts.app')
 @section('title', 'Étudiants')
 @section('content')
- <h1 class="amita-bold">Liste des étudiants</h1>
+ <h3 class="amita-regular">Liste des étudiants</h3>
  <br />
  <div class="row">
     @forelse($etudiants as $etudiant)
     <div class="col-md-4 border-0">
         <div class="card mb-4 border-0">
             <div class="card-header bg-success-subtle border-0 rounded-0 pt-2 pb-0">
-                <h5 class="card-title klee-one-bold fs-4">{{$etudiant->nom}}</h5>
+                <h5 class="card-title klee-one-bold fs-5">{{$etudiant->nom}}</h5>
             </div>
             <div class="card-body">               
-                <p class="card-text fs-5"><strong>Date de naissance :</strong> {{ $etudiant->dateNaissance  }}</p>
-                <p class="card-text fs-5"><strong>Ville :</strong> {{ $etudiant->ville->ville  }}</p>
+                <p class="card-text "><strong>Date de naissance :</strong> {{ $etudiant->dateNaissance  }}</p>
+                <p class="card-text "><strong>Ville :</strong> {{ $etudiant->ville->ville  }}</p>
             </div>
             <div class="card-footer border-0">
                 <div class="d-flex justify-content-start bg-transparent">
-                    <a href="{{ route('etudiant.show', $etudiant->id)}}" class="btn btn-sm bg-success-subtle btn-outline-primary fs-5">Profil</a>
+                    <a href="{{ route('etudiant.edit', $etudiant->id)}}" class="btn btn-sm bg-success-subtle btn-outline-primary">Éditer</a>
                 </div>
             </div>
             <hr/>

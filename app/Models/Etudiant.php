@@ -8,11 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Etudiant extends Model
 {
     use HasFactory;
-    public $timestamps = false;
+    //public $timestamps = false;
+
+    protected $fillable = [
+        'nom',
+        'adresse',
+        'telephone',
+        'dateNaissance',
+        'courriel',
+        'ville_id'
+    ];
 
     
     public function ville() {
-        return $this->belongsTo(ville::class);
+        return $this->belongsTo(Ville::class);
     }
 
 }

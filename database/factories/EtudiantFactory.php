@@ -18,12 +18,12 @@ class EtudiantFactory extends Factory
     public function definition()
     {
         return [
-            'nom' => $this->faker->name(),
-            'adresse' => $this->faker->address(),
-            'telephone' => $this->faker->phoneNumber(),
-            'courriel' => $this->faker->email(),
-            'dateNaissance' => $this->faker->date(),
-            'Ville_id' => Ville::factory()
+            'nom' => $this->faker->name,
+            'adresse' => $this->faker->address,
+            'telephone' => $this->faker->phoneNumber,
+            'dateNaissance' => $this->faker->date('Y-m-d', '-18 years'),
+            'courriel' => $this->faker->unique()->safeEmail,            
+            'Ville_id' => Ville::inRandomOrder()->first()?->id ?? Ville::factory()
         ];
     }
 }

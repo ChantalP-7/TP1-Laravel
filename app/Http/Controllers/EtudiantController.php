@@ -99,18 +99,26 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-        $validated = $request->validate([
-        'nom' => 'required|string',
-        'adresse' => 'required|string',
-        'telephone' => 'required|string',
+        $request->validate([
+        'nom' => 'required|string|max:190',
+        'adresse' => 'required|string|max:190',
+        'telephone' => 'required|string|max:15',
         'dateNaissance' => 'required|date',
-        'courriel' => 'required|email',
+        'courriel' => 'required|email|max:50',
         'ville_id' => 'required|exists:villes,id',
     ]);
 
-     $etudiant->update($validated);
+     $etudiant->update([
+        'nom' => $request->nom,
+        'adresse' => $request->adresse,
+        'telephone' => $request->telephone,
+        'dateNaissance' => $request->dateNaissance,
+        'courriel' => $request->courriel,        
+        'ville_id' => 1
+        
+     ]);
 
-     return redirect()->route('etudiant.show', $etudiant)->with('success', 'Étudiant mis à jour.');
+     return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant mis à jour !');
 
     }
 
@@ -122,6 +130,7 @@ class EtudiantController extends Controller
      */
     public function destroy(Etudiant $etudiant)
     {
-        //
+        $etudiant->delete();
+        return redirect()->route('etudiant.index')->withSuccess('Étudiant supprimé avec succès!');
     }
 }

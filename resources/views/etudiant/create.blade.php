@@ -6,7 +6,7 @@
     <div class="row justify-content-center mt-5 mb-5">        
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-info">
+                <div class="card-header background text-white">
                     <h5 class="card-title fs-4"><strong>Nouvel étudiant</strong></h5>
                 </div>
                 <div class="card-body">
@@ -72,7 +72,7 @@
                             </div>
                         @endif                      
                         <br/>
-                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                        <button type="submit" class="btn btn-background">Sauvegarder</button>
                     </form>
                 </div>
             </div>

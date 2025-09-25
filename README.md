@@ -8,6 +8,6 @@ Création du projet laravel avec composer : reseauMaisonneuve. Une fois dans le 
 
 Ajout de controller etudiant et ville avec la même commande adaptée
 
-On crée les fichiers de migration des étudiants et villes, les dossiers dans factories pour permettre ensuite de générer des données aléatoires qui seront ajoutées dans nos tables sql avec la commande tinker
+Avec les lignes de commandes, je crée les fichiers de migration des étudiants et villes dans migrations, leurs dossiers dans factories pour permettre ensuite de générer des données aléatoires qui seront ajoutées dans nos tables sql avec la commande tinker.
 
 Création des routes, modèles, vues etc.

@@ -26,6 +26,7 @@ Route::get('/etudiant/{etudiant}', [EtudiantController::class, 'show'])->name('e
 Route::get('/create/etudiant', [EtudiantController::class, 'create'])->name('etudiant.create');
 Route::post('/etudiant', [EtudiantController::class, 'store'])->name('etudiant.store');
 Route::get('/edit/etudiant/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
+Route::put('/etudiant/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.update');
 
 
 

@@ -37,10 +37,35 @@
             font-weight: 700;
             font-style: normal;
           }
+          
+          
+          .btn-special {
+            border: 1px dotted rgba(5, 24, 59, 0.9) !important;
+            color: rgba(5, 24, 59, 0.9) !important;
+          }
+          .btn-special:hover {
+            background-color: rgba(5, 24, 59, 0.9);
+            color: #fff !important;
+          }
+          .background {
+            background-color: rgba(5, 24, 59, 0.9);
+          }
+          .btn-background {
+            background-color: rgba(5, 24, 59, 0.9) !important;
+            border: 1px solid transparent;
+            color:#fff;
+          }
+          .btn-background:hover {
+            color: rgba(5, 24, 59, 0.9); 
+            background-color: #fff !important;          
+            border-color: rgba(5, 24, 59, 0.9) !important;
+          }
+          
+
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="mb-5 bg-success">
+    <header class="mb-5 background">
         <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
                 <!--<a class="navbar-brand" href="#">Navbar</a>
@@ -70,7 +95,7 @@
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn bg-white" type="submit">Search</button>
                 </form>
                 </div>
             </div>
@@ -88,7 +113,7 @@
         @yield('content')
     </div>
     </main>
-    <footer class="footer mt-auto py-3 bg-dark text-white">
+    <footer class="footer mt-auto py-3 background text-white">
         <div class="container text-center">
             &copy; {{ date('Y') }} {{ config('app.name') }}. Tous droits réservés.
         </div>

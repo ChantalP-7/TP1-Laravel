@@ -14,9 +14,9 @@
                 <p class="card-text "><strong>Date de naissance :</strong> {{ $etudiant->dateNaissance  }}</p>
                 <p class="card-text "><strong>Ville :</strong> {{ $etudiant->ville->ville  }}</p>
             </div>
-            <div class="card-footer border-0">
-                <div class="d-flex justify-content-start bg-transparent">
-                    <a href="{{ route('etudiant.edit', $etudiant->id)}}" class="btn btn-sm bg-success-subtle btn-outline-primary">Éditer</a>
+            <div class="card-footer border-0 bg-white">
+                <div class="d-flex justify-content-start ">
+                    <a href="{{ route('etudiant.edit', $etudiant->id)}}" class="btn btn-sm btn-special">Éditer</a>
                 </div>
             </div>
             <hr/>

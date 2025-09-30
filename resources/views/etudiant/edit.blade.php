@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @section('title', 'Éditeer étudiant')
 @section('content')
 <h3 class="mb-4 text-center amita-regular">Éditer un étudiant</h3>

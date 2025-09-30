@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @section('title', 'Ajoute étudiant')
 @section('content')
 <h3 class="mb-4 text-center"><strong>Ajoute un étudiant</strong></h3>

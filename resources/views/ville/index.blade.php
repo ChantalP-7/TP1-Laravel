@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @section('title', 'Villes')
 @section('content')
  <h3 class="amita-regular">Liste des villes</h3>

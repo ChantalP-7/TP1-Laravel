@@ -6,8 +6,8 @@
     <div class="row justify-content-center mt-5 mb-5">        
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header background text-white">
-                    <h5 class="card-title text-white fs-4"><strong>{{ $etudiant->nom }}</strong></h5>
+                <div class="card-header background-soft text-white">
+                    <h5 class="card-title text-white fs-4">{{ $etudiant->nom }}</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('etudiant.update', $etudiant->id) }}" method="POST">
@@ -59,21 +59,23 @@
                             </div>
                         @endif
                         <div class="mb-3">
-                            <label for="ville_id" class="form-select-label"><strong>Villes</strong></label>
-                            <select name="ville_id" id="ville_id">
-                                <option value="">Selectionne une ville</option>
-                                @foreach($villes as $ville) 
-                                <option value="{{old('ville_id', $ville->id)}}" {{ $etudiant->ville_id == $ville->id ? 'selected' : '' }}>{{ $ville->ville }}</option>
+                            <label for="ville_id" class="form-label"><strong>Ville</strong></label>
+                            <select class="form-select" name="ville_id" id="ville_id">
+                                <option value="">Sélectionner une ville</option>
+                                @foreach($villes as $ville)
+                                    <option value="{{ $ville->id }}" {{ (old('ville_id', $etudiant->ville_id) === $ville->id) ? 'selected' : '' }}>
+                                        {{ $ville->ville }}
+                                    </option>
                                 @endforeach
                             </select>
-                        </div> 
+                        </div>
                         @if ($errors->has('ville_id'))
                             <div class="text-danger mt-2">
                                 {{$errors->first('ville_id')}}
                             </div>
                         @endif                      
                         <br/>
-                        <button type="submit" class="btn btn-background">Sauvegarder</button>
+                        <button type="submit" class="btn background-soft"><strong>Sauvegarder</strong></button>
                     </form>
                 </div>
             </div>

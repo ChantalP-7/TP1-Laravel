@@ -5,97 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }} - @yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="../../css/app.css">
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Charm:wght@400;700&family=Klee+One&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Charm:wght@400;700&display=swap');
-          body {
-            font-family: "Klee One";
-            font-style: normal;
-          }
-
-          .klee-one-bold {
-            font-family: "Klee One", cursive;
-            font-weight: 700;
-            font-style: normal;
-          }
-
-
-          .charm-bold {
-            font-family: "Charm", cursive !important;
-            font-weight: 700;
-            font-style: normal;
-          }
-          .amita-regular {
-            font-family: "Amita", serif;
-            font-weight: 400;
-            font-style: normal;
-          }
-
-          .amita-bold {
-            font-family: "Amita", serif;
-            font-weight: 700;
-            font-style: normal;
-          }
-          
-          
-          .btn-special {
-            border: 1px dotted rgba(5, 24, 59, 0.9) !important;
-            color: rgba(5, 24, 59, 0.9) !important;
-          }
-          .btn-special:hover {
-            background-color: rgba(5, 24, 59, 0.9);
-            color: #fff !important;
-          }
-          .background {
-            background-color: rgba(5, 24, 59, 0.9);
-          }
-          .btn-background {
-            background-color: rgba(5, 24, 59, 0.9) !important;
-            border: 1px solid transparent;
-            color:#fff;
-          }
-          .btn-background:hover {
-            color: rgba(5, 24, 59, 0.9); 
-            background-color: #fff !important;          
-            border-color: rgba(5, 24, 59, 0.9) !important;
-          }
-          
-
-    </style>
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet" />  
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="mb-5 background">
+    <header class="mb-5 jus background pl-5 pr-5">
         <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
                 <!--<a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>-->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto gap-3 mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active text-white fs-4" aria-current="page" href="{{route('etudiant.index')}}">Étudiants</a>
+                <div class="collapse navbar-collapse  w-100 d-flex justify-content-between px-3 align-items-center" id="navbarSupportedContent">
+                <ul class="navbar-nav gap-3 pl-5 mb-lg-0">
+                    <li class="nav-item d-flex align-items-center">                      
+                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" class="bi bi-house-heart" viewBox="0 0 16 16">
+                      <path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982"/>
+                      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                    </svg>   
+                    <a class="nav-link active text-white fs-4" aria-current="page" href="{{route('etudiant.index')}}">Admin</a>                        
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link text-white fs-4" href="{{route('ville.index')}}">Villes</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white fs-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Section étudiants
-                    </a>
+                    
+                    <li class="nav-item dropdown d-flex align-items-center">
+                      <a class="nav-link dropdown-toggle text-white fs-4 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-backpack pb-1" viewBox="0 0 16 16">
+                        <path d="M4.04 7.43a4 4 0 0 1 7.92 0 .5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14M4 9.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm1 .5v3h6v-3h-1v.5a.5.5 0 0 1-1 0V10z"/>
+                        <path d="M6 2.341V2a2 2 0 1 1 4 0v.341c2.33.824 4 3.047 4 5.659v5.5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5V8a6 6 0 0 1 4-5.659M7 2v.083a6 6 0 0 1 2 0V2a1 1 0 0 0-2 0m1 1a5 5 0 0 0-5 5v5.5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V8a5 5 0 0 0-5-5"/>
+                      </svg>
+                          Étudiants
+                      </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item fs-5" href="{{ route('etudiant.create') }}">Ajoute un étudiant</a></li>
-                        <li><a class="dropdown-item fs-5" href="{{route('ville.index')}}">Villes</a></li>
-                        <li><a class="dropdown-item fs-5" href="#">Date de naissance</a></li>
+                        <li><a class="dropdown-item fs-5" href="{{route('ville.index')}}">Liste des villes</a></li>
+                        <li><a class="dropdown-item fs-5" href="#">Date d'inscription</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item fs-5" href="#">Archives</a></li>
                     </ul>
                     </li>        
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button class="btn bg-white" type="submit">Search</button>
+                    <input class="form-control me-2" type="search" placeholder="Cherche" aria-label="Search"/>
+                    <button class="btn bg-white" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg></button>
                 </form>
                 </div>
             </div>
@@ -113,9 +64,9 @@
         @yield('content')
     </div>
     </main>
-    <footer class="footer mt-auto py-3 background text-white">
+    <footer class="footer mt-auto py-3   background text-white">
         <div class="container text-center">
-            &copy; {{ date('Y') }} {{ config('app.name') }}. Tous droits réservés.
+            &copy; {{ date('Y') }} {{ config('app.name') }} | Tous droits réservés | Conception: Chantal Pépin
         </div>
     </footer>
 </body>

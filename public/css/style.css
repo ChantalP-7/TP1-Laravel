@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Charm:wght@400;700&family=Klee+One&display=swap');
+      
+body {
+    font-family: "Klee One";
+    font-style: normal;
+}
+
+.klee-one-bold {
+    font-family: "Klee One", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+.charm-bold {
+    font-family: "Charm", cursive !important;
+    font-weight: 700;
+    font-style: normal;
+}
+.amita-regular {
+    font-family: "Amita", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.amita-bold {
+    font-family: "Amita", serif;
+    font-weight: 700;
+    font-style: normal;
+}          
+
+.btn-special {
+    background-color: rgba(8, 37, 90, 0.9) !important;
+    color: rgba(212, 221, 238, 0.9) !important;
+}
+.btn-special:hover  {  
+    background-color: rgba(0, 146, 102, 0.84) !important; 
+}
+.btn-special:hover svg {                       
+    fill: rgba(8, 37, 90, 0.9) !important;
+}
+.background {
+    background-color: rgba(8, 37, 90, 0.9);
+}
+.background-soft {
+    background-color: rgba(0, 146, 102, 0.84);
+    color: white;
+}
+.background-soft:hover {
+    background-color: rgba(8, 37, 90, 0.9);
+    color: white;
+}
+.tomato {
+    background-color: tomato;
+    color: white
+}
+
+.tomato:hover {
+    background-color: rgba(8, 37, 90, 0.9);
+    color: white;
+}
+
+.btn-background {
+    background-color: rgba(8, 37, 90, 0.9) !important;
+    border: 1px solid transparent;
+    color:#fff;
+}
+.btn-background:hover {
+    color: rgba(8, 37, 90, 0.9); 
+    background-color: #fff !important;          
+    border-color: rgba(8, 37, 90, 0.9) !important;
+}

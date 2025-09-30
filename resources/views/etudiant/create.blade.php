@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Ajoute étudiant')
 @section('content')
-<h1 class="mb-4 text-center"><strong>Ajoute un étudiant</strong></h1>
+<h3 class="mb-4 text-center"><strong>Ajoute un étudiant</strong></h3>
     
     <div class="row justify-content-center mt-5 mb-5">        
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header background text-white">
+                <div class="card-header background-soft text-white">
                     <h5 class="card-title fs-4"><strong>Nouvel étudiant</strong></h5>
                 </div>
                 <div class="card-body">
@@ -62,7 +62,7 @@
                             <select name="ville_id" id="ville_id">
                                 <option value="">Selectionne une ville</option>
                                 @foreach($villes as $ville) 
-                                <option value="{{ $ville->id }}">{{ $ville->ville }}</option>
+                                <option value="{{old('ville_id', $ville->id) }}">{{ $ville->ville }}</option>
                                 @endforeach
                             </select>
                         </div> 
@@ -72,7 +72,7 @@
                             </div>
                         @endif                      
                         <br/>
-                        <button type="submit" class="btn btn-background">Sauvegarder</button>
+                        <button type="submit" class="btn background-soft"><strong>Sauvegarder</strong></button>
                     </form>
                 </div>
             </div>

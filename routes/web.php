@@ -27,7 +27,7 @@ Route::get('/create/etudiant', [EtudiantController::class, 'create'])->name('etu
 Route::post('/etudiant', [EtudiantController::class, 'store'])->name('etudiant.store');
 Route::get('/edit/etudiant/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
 Route::put('/etudiant/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.update');
-
+Route::delete('/etudiant/{etudiant}', [EtudiantController::class, 'destroy'])->name('Etudiant.destroy');
 
 
 // Route pour les vues des villes

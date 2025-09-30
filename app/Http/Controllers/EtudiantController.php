@@ -14,17 +14,10 @@ class EtudiantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // return 'Hello! 🌺';
-        //Écrire des méthodes qui viennent de Eloquent, les méthode sont enchaînées, donc on peut les concaténer...
-            // Méthode static extensie la classe par défaut. Pas besoin d'utiliser extends
-        //$tasks = Task::select()->orderby('title')->get();
-        //$tasks = Task::select()->orderby('title')->get();
-        //$tasks = Task::select()->orderby('title')->first;
-        //return $tasks[3]->title;
+    {        
         $etudiants = Etudiant::select()->with('ville') // Eloquent a fait Select * from etudiants;
-        ->orderby('nom')
-        ->paginate(10);
+        ->orderby('nom', 'DESC')->get();
+        $etudiants = Etudiant::paginate(12);
         return view('etudiant.index', ["etudiants" => $etudiants]);       
 
     }
@@ -114,8 +107,7 @@ class EtudiantController extends Controller
         'telephone' => $request->telephone,
         'dateNaissance' => $request->dateNaissance,
         'courriel' => $request->courriel,        
-        'ville_id' => 1
-        
+        'ville_id' => $request->ville_id        
      ]);
 
      return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant mis à jour !');

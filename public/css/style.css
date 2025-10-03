@@ -27,29 +27,35 @@ body {
     font-style: normal;
 }          
 
-.btn-special {
+.btn-special:hover {
     background-color: rgba(8, 37, 90, 0.9) !important;
     color: rgba(212, 221, 238, 0.9) !important;
 }
-.btn-special:hover  {  
-    background-color: rgba(0, 146, 102, 0.84) !important; 
+.btn-special  {  
+    background-color: rgba(0, 185, 218, 0.84) !important; 
 }
-.btn-special:hover svg {                       
-    fill: rgba(8, 37, 90, 0.9) !important;
-}
+
 .background {
     background-color: rgba(8, 37, 90, 0.9);
 }
-.background-soft {
+.background-soft/*, .background-title*/ {
     background-color: rgba(0, 146, 102, 0.84);
     color: white;
 }
+
+.background-title {
+    background-color: rgba(255, 255, 255, 0.84);
+    color: rgb(27, 27, 27) !important;
+    border-bottom: 4px solid rgba(0, 185, 218, 0.84) !important;
+}
+
 .background-soft:hover {
     background-color: rgba(8, 37, 90, 0.9);
     color: white;
 }
-.tomato {
-    background-color: tomato;
+
+.redTomato {
+    background-color: rgb(226, 1, 20);
     color: white
 }
 
@@ -68,3 +74,29 @@ body {
     background-color: #fff !important;          
     border-color: rgba(8, 37, 90, 0.9) !important;
 }
+
+.custom-gap-30px {
+        margin-left: 30px; /* Or use margin-right for the left column */
+}
+
+.pagination .page-link {
+    background-color: rgba(8, 37, 90, 0.9);
+    color: white;
+    
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(0, 185, 218, 0.84);
+    color: rgba(8, 37, 90, 0.9);
+    
+}
+
+
+.pagination .page-item.active  .page-link  {
+    
+    background-color: #fff; 
+    color: rgba(8, 37, 90, 0.9);
+}
+
+
+

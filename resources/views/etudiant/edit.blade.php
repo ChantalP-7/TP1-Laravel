@@ -1,10 +1,10 @@
 @extends('layouts.layout')
-@section('title', 'Éditeer étudiant')
+@section('title', 'Éditer étudiant')
 @section('content')
 <h3 class="mb-4 text-center amita-regular">Éditer un étudiant</h3>
     
     <div class="row justify-content-center mt-5 mb-5">        
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header background-soft text-white">
                     <h5 class="card-title text-white fs-4">{{ $etudiant->nom }}</h5>
@@ -59,7 +59,7 @@
                             </div>
                         @endif
                         <div class="mb-3">
-                            <label for="ville_id" class="form-label"><strong>Ville</strong></label>
+                            <label for="ville_id" class="form-label mb-2"><strong>Ville</strong></label>
                             <select class="form-select" name="ville_id" id="ville_id">
                                 <option value="">Sélectionner une ville</option>
                                 @foreach($villes as $ville)

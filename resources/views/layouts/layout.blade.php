@@ -10,11 +10,17 @@
 <body class="d-flex flex-column min-vh-100">
     <header class="mb-5 jus background pl-5 pr-5">
         <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid">
+            <div class="container-fluid gx-5">
                 <!--<a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                </button>-->
+                </button>--> 
+                <div class="d-flex justify-content-start align-items-center mx-5">               
+                    <a class="navbar-brand" href="/">
+                        <img src="{{ asset('images/Logo-hibou-bg-transparent.png') }}" width="50" height="50" alt="Logo hibou">                    
+                    </a>
+                    <h3 class="text-white text-nowrap fs-4">Les petits savants</h3>
+                </div>                                
                 <div class="collapse navbar-collapse  w-100 d-flex justify-content-between px-3 align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav gap-3 pl-5 mb-lg-0">
                     <li class="nav-item d-flex align-items-center">                      
@@ -27,7 +33,7 @@
                     
                     <li class="nav-item dropdown d-flex align-items-center">
                       <a class="nav-link dropdown-toggle text-white fs-4 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-backpack pb-1" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-backpack pb-1" viewBox="0 0 16 16">
                         <path d="M4.04 7.43a4 4 0 0 1 7.92 0 .5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14M4 9.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm1 .5v3h6v-3h-1v.5a.5.5 0 0 1-1 0V10z"/>
                         <path d="M6 2.341V2a2 2 0 1 1 4 0v.341c2.33.824 4 3.047 4 5.659v5.5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5V8a6 6 0 0 1 4-5.659M7 2v.083a6 6 0 0 1 2 0V2a1 1 0 0 0-2 0m1 1a5 5 0 0 0-5 5v5.5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V8a5 5 0 0 0-5-5"/>
                       </svg>
@@ -36,18 +42,12 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item fs-5" href="{{ route('etudiant.create') }}">Ajoute un étudiant</a></li>
                         <li><a class="dropdown-item fs-5" href="{{route('ville.index')}}">Liste des villes</a></li>
-                        <li><a class="dropdown-item fs-5" href="#">Date d'inscription</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item fs-5" href="#">Archives</a></li>
                     </ul>
                     </li>        
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Cherche" aria-label="Search"/>
-                    <button class="btn bg-white" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                    </svg></button>
-                </form>
+                
                 </div>
             </div>
         </nav>

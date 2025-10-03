@@ -16,11 +16,11 @@ class EtudiantController extends Controller
     public function index()
     {        
         $etudiants = Etudiant::select()->with('ville') // Eloquent a fait Select * from etudiants;
-        ->orderby('nom', 'DESC')->get();
-        $etudiants = Etudiant::paginate(12);
+        ->orderby('created_at', 'DESC')->paginate(12);
         return view('etudiant.index', ["etudiants" => $etudiants]);       
 
     }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -41,23 +41,24 @@ class EtudiantController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'nom' => 'required|string|max:190',
-        'adresse' => 'required|string|max:190',
-        'telephone' => 'required|string',
-        'dateNaissance' => 'required|date',
-        'courriel' => 'required|string',
-    ]);
+            'nom' => 'required|string|max:190',
+            'adresse' => 'required|string|max:190',
+            'telephone' => 'required|string',
+            'dateNaissance' => 'required|date',
+            'courriel' => 'required|email|unique:etudiants,courriel',
+            'ville_id' => 'required|exists:villes,id'
+        ]);
 
-    $etudiant = Etudiant::create([
-        'nom' => $request->nom,
-        'adresse' => $request->adresse,
-        'telephone' => $request->telephone,
-        'dateNaissance' => $request->dateNaissance,
-        'courriel' => $request->courriel,        
-        'ville_id' => 1
-    ]);
+        $etudiant = Etudiant::create([
+            'nom' => $request->nom,
+            'adresse' => $request->adresse,
+            'telephone' => $request->telephone,
+            'dateNaissance' => $request->dateNaissance,
+            'courriel' => $request->courriel,        
+            'ville_id' => $request->ville_id
+        ]);
 
-    return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant créé avec succès !');
+        return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant enregistré avec succès !');
     }
 
     /**
@@ -93,25 +94,24 @@ class EtudiantController extends Controller
     public function update(Request $request, Etudiant $etudiant)
     {
         $request->validate([
-        'nom' => 'required|string|max:190',
-        'adresse' => 'required|string|max:190',
-        'telephone' => 'required|string|max:15',
-        'dateNaissance' => 'required|date',
-        'courriel' => 'required|email|max:50',
-        'ville_id' => 'required|exists:villes,id',
-    ]);
+            'nom' => 'required|string|max:190',
+            'adresse' => 'required|string|max:190',
+            'telephone' => 'required|string|max:15',
+            'dateNaissance' => 'required|date',
+            'courriel' => 'required|email|max:50',
+            'ville_id' => 'required|exists:villes,id',
+        ]);
 
-     $etudiant->update([
-        'nom' => $request->nom,
-        'adresse' => $request->adresse,
-        'telephone' => $request->telephone,
-        'dateNaissance' => $request->dateNaissance,
-        'courriel' => $request->courriel,        
-        'ville_id' => $request->ville_id        
-     ]);
+        $etudiant->update([
+            'nom' => $request->nom,
+            'adresse' => $request->adresse,
+            'telephone' => $request->telephone,
+            'dateNaissance' => $request->dateNaissance,
+            'courriel' => $request->courriel,        
+            'ville_id' => $request->ville_id        
+        ]);
 
-     return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant mis à jour !');
-
+        return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant mis à jour !');
     }
 
     /**
